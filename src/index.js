@@ -1,16 +1,27 @@
-const info_stdout = require("./Get-Info/info_stdout.js");
-const get_password = require("./Get-Info/get_password.js");
+const readline = require("readline");
 
+const get_wifi_password = require("./Get-wifi-password/get_wifi_password.js");
+const get_wifi_info = require("./Get-wifi-info/get_wifi_info.js");
 const name = require("./name.js");
-const create_folder = require("./create_folder.js");
 
 (async () => {
-  name();
-
-  const get_info_stdout = await info_stdout();
-
-  await get_password(get_info_stdout, (data) => {
-    console.log(data);
-    create_folder(get_info_stdout, data);
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
   });
-})().catch((error) => console.log(error));
+
+  name("G4LH4 Wifi");
+
+  setTimeout(() => {
+    console.log("Options: Connected devices[1] \nWifi password[2]");
+
+    rl.question("\nSelect option: ", (answer) => {
+      return options[answer]();
+    });
+  }, 1000);
+})();
+
+const options = {
+  1: () => get_wifi_info(),
+  2: () => get_wifi_password(),
+};

@@ -1,7 +1,7 @@
 const figlet = require("figlet");
 
-const name = () => {
-  figlet("Galha psswd", function (err, data) {
+const name = (title) => {
+  figlet(`${title}`, function (err, data) {
     if (err) {
       console.log("Something went wrong...");
       console.dir(err);
