@@ -13,7 +13,7 @@ const name = require("./name.js");
   name("G4LH4 Wifi");
 
   setTimeout(() => {
-    console.log("Options: Connected devices[1] \nWifi password[2]");
+    console.log("Options: Connected devices[1] \n\nWifi password[2]");
 
     rl.question("\nSelect option: ", (answer) => {
       return options[answer]();
