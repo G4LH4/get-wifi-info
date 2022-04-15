@@ -1,47 +1,16 @@
-"use strict";
-
-const { promisify } = require("node:util");
-const exec = promisify(require("node:child_process").exec);
+const info_stdout = require("./Get-Info/info_stdout.js");
+const get_password = require("./Get-Info/get_password.js");
 
 const name = require("./name.js");
+const create_folder = require("./create_folder.js");
 
 (async () => {
   name();
 
   const get_info_stdout = await info_stdout();
-  const get_password_stdout = await get_password(get_info_stdout);
 
-  console.log(get_password_stdout);
-})().catch(console.error);
-
-function info_stdout() {
-  return new Promise((resolve, reject) => {
-    exec(
-      "netsh wlan show interfaces | select-string SSID",
-      { shell: "powershell.exe" },
-      (error, stdout) => {
-        if (error) {
-          reject(error);
-        }
-
-        resolve(stdout.split("\n")[1].split(":")[1].trim());
-      }
-    );
+  await get_password(get_info_stdout, (data) => {
+    console.log(data);
+    create_folder(get_info_stdout, data);
   });
-}
-
-function get_password(info_stdout) {
-  return new Promise((reject, resolve) => {
-    exec(
-      `netsh wlan show profile name="${info_stdout}" key=clear`,
-      { shell: "powershell.exe" },
-      (error, stdout) => {
-        if (error) {
-          reject(error);
-        }
-
-        resolve(stdout.split("\n")[32].trim());
-      }
-    );
-  });
-}
+})().catch((error) => console.log(error));
