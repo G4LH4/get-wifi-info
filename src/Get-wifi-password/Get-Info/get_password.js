@@ -7,7 +7,7 @@ async function get_password(info_stdout, callback) {
     { shell: "powershell.exe" },
     (error, stdout) => {
       if (error) {
-        reject(error);
+        console.error(error);
       }
 
       callback(stdout.split("\n")[32].trim().replace("  ", ""));

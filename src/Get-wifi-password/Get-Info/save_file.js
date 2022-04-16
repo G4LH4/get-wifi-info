@@ -2,8 +2,6 @@ const fs = require("fs");
 const path = require("path");
 
 const save_file = (get_info_stdout, get_password_stdout) => {
-  // save file with the password
-
   const file_name = path.join(
     process.cwd(),
     `../../passwords/${get_info_stdout}.txt`
