@@ -1,7 +1,7 @@
 
 # Get wifi password
 
-Gets the wifi password of the current wifi
+Gets the wifi password of the current wifi, creates a folder and saves a file with the password on it.
 
 
 ## Instalation
