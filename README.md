@@ -9,7 +9,7 @@ Gets the wifi password of the current wifi, creates a folder and saves a file wi
 To install the package run
 
 ```bash
-npm i current-pswd
+npm i current-w-pswd
 ```
 
 
@@ -18,7 +18,7 @@ npm i current-pswd
 #### Get all items
 
 ```js
-const getWifiPassword = require("current-pswd");
+const getWifiPassword = require("current-w-pswd");
 
 (async () => {
   await getWifiPassword("windows", (data) => {
@@ -31,6 +31,7 @@ const getWifiPassword = require("current-pswd");
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `OS` | `string` | **Required** |
+
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
