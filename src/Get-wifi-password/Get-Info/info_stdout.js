@@ -2,6 +2,7 @@ const { promisify } = require("node:util");
 const exec = promisify(require("node:child_process").exec);
 
 async function info_stdout(OSystem) {
+  console.log(await OS[OSystem]());
   return await OS[OSystem]();
 }
 
@@ -16,7 +17,19 @@ const OS = {
             reject(error);
           }
 
-          resolve(stdout.split("\n")[1].split(":")[1].trim());
+          const getThePassword = stdout.split("\n");
+
+          if (getThePassword[2] !== "SSID") {
+            resolve(
+              `${getThePassword[1]
+                .split(":")[1]
+                .trim()} ${getThePassword[2].replace("\r", "")}`
+            );
+          }
+
+          resolve(getThePassword[1].split(":")[1].trim());
+
+          resolve(stdout.split(":"));
         }
       );
     });
