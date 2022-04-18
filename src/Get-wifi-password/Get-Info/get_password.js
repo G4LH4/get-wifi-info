@@ -16,7 +16,7 @@ const OS = {
       { shell: "powershell.exe" },
       (error, stdout) => {
         if (error) {
-          reject(error);
+          console.error(error);
         }
 
         callback(stdout.split("\n")[32].trim().replace("  ", ""));
@@ -31,7 +31,7 @@ const OS = {
       { shell: "bash" },
       (error, stdout) => {
         if (error) {
-          reject(error);
+          console.error(error);
         }
 
         callback(stdout.trim());
