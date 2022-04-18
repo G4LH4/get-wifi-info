@@ -2,7 +2,6 @@ const { promisify } = require("node:util");
 const exec = promisify(require("node:child_process").exec);
 
 async function info_stdout(OSystem) {
-  console.log(await OS[OSystem]());
   return await OS[OSystem]();
 }
 
