@@ -16,19 +16,9 @@ const OS = {
             reject(error);
           }
 
-          const getThePassword = stdout.split("\n");
+          const getThePassword = stdout.trim().split("\n");
 
-          if (getThePassword[2] !== "SSID") {
-            resolve(
-              `${getThePassword[1]
-                .split(":")[1]
-                .trim()} ${getThePassword[2].replace("\r", "")}`
-            );
-          }
-
-          resolve(getThePassword[1].split(":")[1].trim());
-
-          resolve(stdout.split(":"));
+          resolve(getThePassword[0].split(":")[1].trim());
         }
       );
     });
