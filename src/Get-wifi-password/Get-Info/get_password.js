@@ -19,9 +19,7 @@ const OS = {
           console.error(error);
         }
 
-        callback(
-          stdout.match(/^\s*Contenido de la clave\s+:\s*(\w+)\s*$/m)?.[1]
-        );
+        callback(stdout);
       }
     );
 
