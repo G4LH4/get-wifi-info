@@ -16,9 +16,7 @@ const OS = {
             reject(error);
           }
 
-          resolve(
-            stdout.trim().split(":")[1].split("\n")[0].replace("\r", "").trim()
-          );
+          resolve(stdout);
         }
       );
     });
