@@ -16,9 +16,9 @@ const OS = {
             reject(error);
           }
 
-          const getThePassword = stdout.trim().split("\n");
-
-          resolve(getThePassword[0].split(":")[1].trim());
+          resolve(
+            stdout.trim().split(":")[1].split("\n")[0].replace("\r", "").trim()
+          );
         }
       );
     });
