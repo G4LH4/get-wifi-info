@@ -16,7 +16,8 @@ const OS = {
             reject(error);
           }
 
-          resolve(stdout);
+          const split_line = stdout.trim().split("\n")[0].split(":")[1].trim();
+          resolve(split_line);
         }
       );
     });
