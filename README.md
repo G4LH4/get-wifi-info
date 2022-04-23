@@ -20,18 +20,13 @@ npm i current-w-pswd
 ```js
 const getWifiPassword = require("current-w-pswd");
 
-(async () => {
-  await getWifiPassword("windows", (data) => {
+(() => {
+  getWifiPassword((data) => { // Detects automatically the OS
     console.log(data);
   });
 })();
 
 ```
-#getWifiPassword function
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `OS` | `string` | **Required** |
-
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
