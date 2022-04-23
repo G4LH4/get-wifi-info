@@ -10,7 +10,7 @@ function get_password(info_stdout, OSystem) {
 }
 
 const OS = {
-  windows: async (info_stdout, callback) => {
+  win32: async (info_stdout, callback) => {
     const password = await exec(
       `netsh wlan show profile name="${info_stdout}" key=clear`,
       { shell: "powershell.exe" },

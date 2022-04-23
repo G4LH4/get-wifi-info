@@ -6,7 +6,7 @@ async function info_stdout(OSystem) {
 }
 
 const OS = {
-  windows: async () => {
+  win32: async () => {
     return new Promise((resolve, reject) => {
       exec(
         "netsh wlan show interfaces | select-string SSID",
