@@ -2,7 +2,7 @@
 # Get wifi password
 
 Gets the wifi password of the current wifi, creates a folder and saves a file with the password on it.
-
+(Currently only working for Windows and Linux)
 
 ## Instalation
 
@@ -14,8 +14,6 @@ npm i current-w-pswd
 
 
 ## How to use
-
-#### Get all items
 
 ```js
 const getWifiPassword = require("current-w-pswd");
