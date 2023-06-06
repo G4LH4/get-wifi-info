@@ -9,7 +9,7 @@ const OS = {
   win32: async () => {
     return new Promise((resolve, reject) => {
       exec(
-        "netsh wlan show interfaces | select-string SSID",
+        'netsh wlan show interfaces | findstr "SSID"',
         { shell: "powershell.exe" },
         (error, stdout) => {
           if (error) {
@@ -22,6 +22,7 @@ const OS = {
       );
     });
   },
+
   linux: async () => {
     return new Promise((resolve, reject) => {
       exec("iwgetid -r", { shell: "bash" }, (error, stdout) => {
